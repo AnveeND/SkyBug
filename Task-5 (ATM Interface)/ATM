@@ -1,0 +1,91 @@
+package skybug_internship;
+
+import java.util.Scanner;
+
+public class Atm {
+
+	public static void main(String[] args) {
+		try (Scanner sc = new Scanner(System.in)) {
+			account user=new account();
+
+			System.out.println("\n---------------------- Welcome To ATM --------------------\n\n");
+			
+			
+			while(true) {
+				
+				System.out.println("\n\n1)Create New Account\t2)Existing account\nEnter your choice : ");
+				int ch=sc.nextInt();
+				if(ch==1) {
+					user.newAccount();
+					continue;
+				}
+				else if(ch == 2) {
+					System.out.println("\nEnter pin number : ");
+					int pin=sc.nextInt();
+					Boolean us=	user.validateUser(pin);
+					if(us==true) {
+						System.out.println("\nPin Validated !!!");
+
+						while(true) {
+
+							System.out.println("\n1) Check Balance\n2) Withdraw amount\n3) Deposite amount \nEnter Your Choice : ");
+							int choice = sc.nextInt();
+							switch(choice) {
+							case 1:
+								user.checkBal(pin);
+								break;
+							case 2:
+								System.out.println("\nEnter the amount to withdraw : ");
+								float withdrawAmount=sc.nextFloat();
+								user.withdraw(pin, withdrawAmount);
+								break;
+							case 3:
+								System.out.println("\nEnter the amount to Deposit : ");
+								float amountDeposit=sc.nextFloat();
+								user.deposit(pin, amountDeposit);
+								break;
+
+							default:
+								System.out.println("\nWrong operation selected !! ");
+								break;
+
+
+							}//switch
+							System.out.println("\nDo you want to perform another operation ? (1)YES  (2)No \nEnter your choice :  ");
+							int newCh=sc.nextInt();
+							if(newCh==1) {
+								continue;
+							}else {break;}
+
+
+						}
+						System.out.println("\nExit ? (1)YES  (2)No :\n");
+						int ch1=sc.nextInt();
+						if(ch1==1) {
+							System.out.println("\nThank you!! Visit Again .");
+							break;
+						}else {
+							continue;
+						}
+
+					}else {
+						System.out.println("Sorry Not a validate user Access Denied!!!");
+						break;
+					}
+
+
+
+				}else {
+					System.out.println("\nInvalid choice entered Try Again !!");
+					continue;
+				}
+
+
+
+
+			}
+		}
+
+	}
+}
+
