@@ -1,0 +1,121 @@
+package skybug_internship;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
+public class task4 extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JTable j1;
+	JButton info,reg1,stuinfo;
+	public task4() {
+
+		setBounds(200,100,1000,600);
+		setVisible(true);
+		setLayout(null);
+		getContentPane().setBackground(Color.white);
+		JLabel l = new JLabel("Register For Courses ");
+		add(l);
+		l.setSize(700,40);
+		l.setLocation(320, 10);
+		l.setFont(new Font("new",Font.BOLD,30));
+		l.setForeground(Color.BLACK);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JLabel py=new JLabel("Python");
+		py.setBounds(180, 100,300,30);
+		py.setFont(new Font("new",Font.BOLD,25));
+		py.setForeground(Color.RED);
+		add(py);
+
+		JLabel jv=new JLabel("Java");
+		jv.setBounds(180, 150,300,30);
+		jv.setFont(new Font("new",Font.BOLD,25));
+		jv.setForeground(Color.red);
+		add(jv);
+
+		JLabel js=new JLabel("Java Script");
+		js.setBounds(180, 200,300,30);
+		js.setFont(new Font("new",Font.BOLD,25));
+		js.setForeground(Color.red);
+		add(js);
+
+		JLabel ms=new JLabel("MERN Stack");
+		ms.setBounds(180, 250,300,30);
+		ms.setFont(new Font("new",Font.BOLD,25));
+		ms.setForeground(Color.red);
+		add(ms);
+
+		JLabel ma=new JLabel("MEAN Stack");
+		ma.setBounds(180, 300,300,30);
+		ma.setFont(new Font("new",Font.BOLD,25));
+		ma.setForeground(Color.red);
+		add(ma);
+
+		JLabel wd=new JLabel("Web Development");
+		wd.setBounds(180, 350,300,30);
+		wd.setFont(new Font("new",Font.BOLD,25));
+		wd.setForeground(Color.red);
+		add(wd);
+
+		info = new JButton(" More information about Courses");
+		info.setBounds(600, 150, 300, 30);
+		info.setBackground(Color.GREEN);
+		info.setBorderPainted(false);
+		info.setForeground(Color.WHITE);
+		info.addActionListener(this);
+		add(info);		
+
+		stuinfo = new JButton("Registered Students ");
+		stuinfo.setBounds(600, 300, 300, 30);
+		stuinfo.setBackground(Color.GREEN);
+		stuinfo.setBorderPainted(false);
+		stuinfo.setForeground(Color.WHITE);
+		stuinfo.addActionListener(this);
+		add(stuinfo);
+
+		reg1 = new JButton("Register For Course");
+		reg1.setBounds(380, 450, 300, 30);
+		reg1.setBackground(Color.orange);
+		reg1.setForeground(Color.BLACK);
+		reg1.addActionListener(this);
+		add(reg1);
+
+
+	}
+
+	public static void main(String[] args) {
+		new task4();
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==reg1) {
+			setVisible(false);
+			new reg();
+		}
+		if(e.getSource()==info){
+			try {
+				new table();              
+
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+		if(e.getSource()==stuinfo) {
+			new tbl();
+		}
+
+
+	}
+
+}
