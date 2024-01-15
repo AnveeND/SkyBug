@@ -1,0 +1,79 @@
+package skybug_internship;
+import java.util.Scanner;
+import java.util.Random;
+
+
+// Guess the number game : -
+
+
+/*
+ The game will be as follows :-
+ - The computer will generate a random number between 1 to 100
+ - User input will be taken
+ - There will be total five rounds to guess the number 
+ - At each round user will be given hint regarding the number whether the no. is smaller or larger 
+ - If the user guesses the no. the score will be displayed according to at which round user has guessed it right 
+ - Else game over  
+ */
+
+public class Task1 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
+		while(true) {
+			int score = 100 ;
+			/* highest score will be 100 
+			   score decreases with each wrong guess by 20 */
+
+			int n = r.nextInt(100);      // random number generated and stored in variable no 
+			System.out.print("\n~~~~~~~~~~~~~~~~~ NUMBER GUESSING GAME ~~~~~~~~~~~~~~~~~\n");
+			System.out.print("\nRULE --> Guess the number only between 1 to 100  \n");
+			for(int i =1;i<=5;i++) {
+				System.out.print("\n\n-----------------------------------\nRound "+i+"\n-----------------------------------\n");
+				System.out.print("Guess a number : ");
+				int p = sc.nextInt();     // number guessed by user is stored in p
+				System.out.println();
+				if(p == n){System.out.println("\nCorrect!!\nYou Win\nYour score is : "+score);
+				break;}
+				else {
+					if(p < n && i != 5) {
+						System.out.println();
+						System.out.print("Try Again!!!\n-> The number is larger than your guess\n-> chances remaining = "+(5-i));
+						score = score-20;
+					}
+					else {
+						if(p>n && i != 5){
+							System.out.println();
+							System.out.print("Try Again!!!\n-> The number is smaller than your guess\n-> chances remaining = "+(5-i));
+							score = score-20;
+
+						}
+						else {
+							System.out.println("\nGame over !! ");
+							System.out.println("\nThe number was : "+n);
+							break;
+						}
+
+					}
+				}
+
+
+			}
+			System.out.print("\nDo you want to play again ? \n1)YES\n2)No\n ->  ");
+			int ch = sc.nextInt();
+			if(ch == 1) {
+				continue;
+			}
+			else {
+				System.out.println("\nThank you for playing ");
+				break;
+			}
+
+
+		}
+		sc.close();
+
+
+	}
+}
