@@ -2,7 +2,7 @@
 Java Programming Internship 
 
 This Repository contains all the tasks completed by me during my java programmin internship at SkyBug Technologies.
-\n\n
+"\n\n"
 Task-1 : Guess the number game.
 \n
 Task-2 : Quiz Application with timer.
